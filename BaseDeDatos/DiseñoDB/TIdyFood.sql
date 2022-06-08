@@ -11,7 +11,7 @@ show databases;
 
 
 
-/*CREATE DATABASE Tidyfood;
+CREATE DATABASE Tidyfood;
 DROP DATABASE IF EXISTS tidyfood;
 USE Tidyfood;
 
