@@ -1,0 +1,20 @@
+//crontab -e sakatu terminalen, automatizazio komandok sartzeko
+30 0 * * * /home/ando/backup.sh
+//egunero, gaueko 00:30tan, backup.sh fitxeroa exekutatuko du.
+
+sudo nano /home/ando/backup.sh
+//horrek, fitxategia, extensio horrekin sortuko du.
+//fitxategi barruan, hurrengo 4 gauzak jarri
+
+mysqldump -u Admin01 -pa    -h 172.17.100.70 Tidyfood > /home/ando/CopiasTidyFood/Tidyfood.sql
+mysqldump -u Admin01 -pa -B -h 172.17.100.70 Tidyfood > /home/ando/CopiasTidyFood/TidyfoodB.sql
+mysqldump -u Admin01 -pa -d -h 172.17.100.70 Tidyfood > /home/ando/CopiasTidyFood/TidyfoodE.sql
+mysqldump -u Admin01 -pa -t -h 172.17.100.70 Tidyfood > /home/ando/CopiasTidyFood/TidyfoodD.sql
+
+IP-a, maestroan dagoena da. Esklabuak duena ere jarri linteke, eta hobegoa da gainera,
+ zerbitzuan ez sortzeko atzerapenik eta azkarra izateko.
+
+
+sudo chmod 777 backup.sh
+//baimen kontuak... hau gabe, ezin da script-a exekutatzen
+
